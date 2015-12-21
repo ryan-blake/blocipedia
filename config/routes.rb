@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :user
+
+devise_scope :user do
+   get '/user/sign_out' => 'devise/sessions#destroy'
+end
 
   authenticated :user do
   root to: 'user#show', as: :authenticated_root

@@ -6,8 +6,11 @@ class UserController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def delete
+    end
+
   end
-  
+
   # private
   #
   # def user_not_authorized
