@@ -1,3 +1,3 @@
 production:
-   SENDGRID_USERNAME: 'app45264104@heroku.com'
-   SENDGRID_PASSWORD: 's9ouhqjp1934'
+   SENDGRID_USERNAME: ''
+   SENDGRID_PASSWORD: ''
