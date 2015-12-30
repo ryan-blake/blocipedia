@@ -13,4 +13,6 @@ end
 
   root to: 'home#index'
 
+   resources :wiki
+
 end
