@@ -3,6 +3,7 @@
   user = User.new(
 
   email: "r@j.com",
+  name: "reofe",
   password: "testtest"
   )
   user.skip_confirmation!
