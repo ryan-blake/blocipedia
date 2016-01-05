@@ -1,4 +1,5 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
+
   def show
     @user = current_user
 
@@ -6,9 +7,10 @@ class UserController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def delete
-    end
+    @wikis = @user.wikis
+  end
 
+  def delete
   end
 
   # private

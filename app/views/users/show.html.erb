@@ -1,0 +1,14 @@
+<h1>
+  <% cu = current_user.name   %>
+  <%= cu.capitalize + "'s wikisss." %>
+</h1>
+<div>
+  <% @wikis.each do |w| %>
+    <h2>  <%= w.title %> <%= link_to "edit", edit_wiki_path(w), class: "" %></h2>
+    <p>  <%= w.body %> </p>
+  <% end %>
+
+  <%= link_to "create", new_wiki_path(@wiki), class: "btn btn-primary" %>
+
+
+</div>

@@ -1,0 +1,17 @@
+<div>
+  <h1>
+    <%= @wiki.title %> <br>
+    <small>
+      submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= @wiki.user.name %>
+      <%= link_to "edit", edit_wiki_path(@wiki), class: "btn btn-primary" %>
+      <%= link_to "Delete", @wiki , :method => :delete %>
+
+    </small>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <p><%= @wiki.body %></p>
+  </div>
+</div>

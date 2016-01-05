@@ -2,17 +2,17 @@ Rails.application.routes.draw do
 
   devise_for :user
 
-devise_scope :user do
-   get '/user/sign_out' => 'devise/sessions#destroy'
-end
+  devise_scope :user do
+     get '/user/sign_out' => 'devise/sessions#destroy'
+  end
 
   authenticated :user do
-  root to: 'user#show', as: :authenticated_root
-end
+    root to: 'users#show', as: :authenticated_root
+  end
 # root to: "users#show", as: :authenticated_root
 
   root to: 'home#index'
 
-   resources :wiki
+  resources :wikis
 
 end
