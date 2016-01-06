@@ -23,6 +23,14 @@ users = User.all
   )
 end
 
+# Create an admin user
+admin = User.create!(
+  name:     'Admin User',
+  email:    'admin@example.com',
+  password: 'testtest',
+  role:     'admin'
+)
+
 wikis = Wiki.all
 
 
