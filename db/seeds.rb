@@ -1,9 +1,10 @@
-# include RandomData
-1.times do
-  user = User.new(
 
-  email: "r@j.com",
-  name: "reofe",
+#Creates Users
+5.times do
+  user = User.new(
+  # #3
+  email:   Faker::Internet.email,
+  name:     Faker::Name.name,
   password: "testtest"
   )
   user.skip_confirmation!
@@ -11,45 +12,20 @@
 end
 users = User.all
 
-1.times do
-  wiki = Wiki.new(
-
-  title: "1 wiki",
-  body: "theis sidsfs safsgs adfafdda body",
-  user: User.first
-  )
-  wiki.save!
-end
-wikis = Wiki.all
-
-# #Creates Users
-# 5.times do
-#   user = User.new(
-#   # #3
-#   email:    RandomData.random_email,
-#   password: RandomData.p
-#   )
-#   user.skip_confirmation!
-#   user.save!
-# end
-# users = User.all
-
 
 # Creates i
-# 20.times do
-#   wiki.create!(
-#     title:   RandomData.random_name,
-#     body: RandomData.random_word,
-#
-#
-#     user:   users.sample,
-#     # created_at: "2015-12-10 20:24:01"
-#   )
-# end
-# wikiss = Wiki.all
+20.times do
+  Wiki.create!(
+  title:       Faker::Hipster.word,
+  body:    Faker::Hipster.paragraph,
+  user:   users.sample,
+  # created_at: "2015-12-10 20:24:01"
+  )
+end
+
+wikis = Wiki.all
 
 
 puts "Seed finished"
-# puts "#{Wiki.count}  wikis created"
+puts "#{Wiki.count}  wikis created"
 puts "#{User.count}  user created"
-puts "#{Wiki.count} wikis created"
