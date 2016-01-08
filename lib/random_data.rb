@@ -18,7 +18,7 @@ module RandomData
   def random_paragraph
     Faker::Hipster.paragraph
   end
-  
+
 
 
   # #7

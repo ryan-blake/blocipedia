@@ -24,12 +24,14 @@ users = User.all
 end
 
 # Create an admin user
-admin = User.create!(
+admin = User.new(
   name:     'Admin User',
   email:    'admin@example.com',
   password: 'testtest',
   role:     'admin'
 )
+admin.skip_confirmation!
+admin.save!
 
 wikis = Wiki.all
 
