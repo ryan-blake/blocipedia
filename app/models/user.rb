@@ -20,17 +20,23 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  topic_id               :integer
+#  role                   :integer
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  #  :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  after_initialize :init
 
   # ROLES = %w[standard premium admin]
   enum role: [:standard, :premium, :admin]
   has_many :wikis
+
+  def init
+    self.role  ||= "standard"          #will set the default value only if it's nil
+  end
 
 end

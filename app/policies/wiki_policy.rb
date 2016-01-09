@@ -7,10 +7,10 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def show?
-   Wiki.user == current_user || user.admin?
+   user.present?
   end
 
   def update?
-    user.admin? or not post.published?
+    user.present?
   end
 end

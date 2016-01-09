@@ -20,7 +20,7 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  topic_id               :integer
+#  role                   :integer
 #
 
 require 'rails_helper'
