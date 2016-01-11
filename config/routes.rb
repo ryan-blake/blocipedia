@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'charges/create'
+
+  get 'charges/new'
+
   devise_for :admins
   devise_for :user
 
@@ -15,5 +19,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :wikis
+
+  resources :charges, only: [:new, :create]
 
 end
