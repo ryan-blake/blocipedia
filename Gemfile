@@ -44,3 +44,5 @@ gem 'faker'
 gem 'dotiw', '~> 3.0', '>= 3.0.1'
 #wheneverize tasks
 gem 'whenever', :require => false
+#payment
+gem 'stripe'
