@@ -16,8 +16,5 @@
 !/log/.keep
 /tmp
 
-# Ignore application configuration
+# Ignore
 /config/application.yml
-
-# Ignore application configuration
-/config/initializers/stripe.rb

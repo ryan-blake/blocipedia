@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   # ROLES = %w[standard premium admin]
   enum role: [:standard, :premium, :admin]
   has_many :wikis
+  has_many :charges
 
   def init
     self.role  ||= "standard"          #will set the default value only if it's nil
