@@ -7,7 +7,11 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def show?
-   user.present?
+    if wiki.private
+      user.present? && (user.premium? || user.admin?)
+    else
+      true
+    end
   end
 
   def update?

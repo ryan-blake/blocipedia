@@ -5,7 +5,11 @@ class WikisController < ApplicationController
   def show
     @wiki = Wiki.find(params[:id])
 
-    authorize @wiki
+    if !policy(@wiki).show?
+      flash[:alert] = "You must be signed in to view private topics."
+      redirect_to root_path
+    end
+
   end
 
   def new
@@ -61,6 +65,6 @@ class WikisController < ApplicationController
   private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body)
+    params.require(:wiki).permit(:title, :body, :private)
   end
 end

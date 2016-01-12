@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'charges/new'
 
+  get 'charges/downgrade'
+
   devise_for :admins
   devise_for :user
 
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :wikis
 
-  resources :charges, only: [:new, :create]
+  resources :charges, only: [:new, :create, :downgrade]
+
 
 end
