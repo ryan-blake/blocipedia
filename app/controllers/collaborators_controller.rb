@@ -14,6 +14,7 @@ class CollaboratorsController < ApplicationController
         flash[:notice] = "collaborator was saved."
         redirect_to edit_wiki_path(@wiki)
       else
+
         flash[:error] = "There was an error saving the collaborator. Please try again."
         render "wikis/edit"
       end
@@ -25,14 +26,14 @@ class CollaboratorsController < ApplicationController
   end
 
   def destroy
-    @wiki = Wiki.find(params[:id])
+    @collaborator = Collaborator.find(params[:id])
 
-    if @wiki.destroy
-      flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
+    if @collaborator.destroy
+      flash[:notice] = "\"#{Collaborator}\" was deleted successfully."
       # #38
       redirect_to root_url
     else
-      flash[:error] = "There was an error deleting the wiki."
+      flash[:error] = "There was an error deleting the collabotor."
       render :show
     end
   end
@@ -41,7 +42,7 @@ class CollaboratorsController < ApplicationController
   private
 
   def collaborator_params
-    params.require(:collaborator).permit(:email, :id)
+    params.require(Wiki.collaborator).permit(:email, :collaborator_id)
   end
 
   def index
