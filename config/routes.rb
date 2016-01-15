@@ -20,7 +20,9 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :wikis
+  resources :wikis do
+    resources :collaborators
+  end
 
   resources :charges, only: [:new, :create, :downgrade]
 

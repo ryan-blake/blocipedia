@@ -4,11 +4,32 @@
   <div calss="col-md-4">
     <p>guidelines for posts</p>
     <ul>
-      <li>Make it pediariffic.</li>
+      <li>Make it pediariffiddc.</li>
+
 
     </ul>
   </div>
   <div class="col-md-8">
-    <%= render partial: 'form', locals: { wiki: @wiki } %>
+    <%= render partial: 'wikis/form', locals: { wiki: @wiki } %>
+
+    <% @collaborators.each do |c| %>
+      <p>
+        <%= link_to wiki_collaborator_path(@wiki, c), method: :delete do %>
+          <span class="glyphicon glyphicon-remove-circle"></span>
+        <%end%>
+        <%= c.user.name %>
+      </p>
+    <%end%>
+    <%= form_for [@wiki, @collaborator] do |g| %>
+      <%= g.fields_for :user, @collaborator.build_user do |ff| %>
+        <%= ff.label :email %>
+        <%= ff.email_field :email %>
+      <% end %>
+
+      <div class="form-group">
+        <%= g.submit "Save", class: 'btn btn-success' %>
+      </div>
+    <% end %>
+
   </div>
 </div>

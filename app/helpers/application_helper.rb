@@ -1,6 +1,7 @@
 require 'redcarpet'
 
 module ApplicationHelper
+
   class HTMLwithPygments < Redcarpet::Render::HTML
     def block_code(code, language)
       Pygments.highlight(code, lexer:language)

@@ -31,6 +31,8 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    @collaborators = @wiki.collaborators
+    @collaborator = Collaborator.new
   end
 
   def update
@@ -67,4 +69,9 @@ class WikisController < ApplicationController
   def wiki_params
     params.require(:wiki).permit(:title, :body, :private)
   end
+
+  def index
+    @wikis = policy_scope(Wiki)
+  end
+
 end
