@@ -46,3 +46,5 @@ gem 'dotiw', '~> 3.0', '>= 3.0.1'
 gem 'whenever', :require => false
 #payment
 gem 'stripe'
+#markdown
+gem 'redcarpet'
