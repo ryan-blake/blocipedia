@@ -1,6 +1,9 @@
 class CollaboratorsController < ApplicationController
 
-
+   def index
+     @collaborator = Collaborator.all
+   end
+   
   def create
     @wiki = Wiki.find(params[:wiki_id])
     @user = User.find_by(email: params[:collaborator][:user_attributes][:email])

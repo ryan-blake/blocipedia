@@ -15,4 +15,9 @@ class Collaborator < ActiveRecord::Base
 
   accepts_nested_attributes_for :user
   validates_uniqueness_of :user, scope: :wiki
+
+
+
+
+
 end

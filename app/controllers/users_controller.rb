@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
     @wikis = @user.wikis
 
+   @collaborations =  @user.collaborators
+
     authorize @user
   end
 
