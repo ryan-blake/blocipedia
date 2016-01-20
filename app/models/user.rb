@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   enum role: [:standard, :premium, :admin]
   has_many :wikis
   has_many :collaborators
-  # has_many :wikis, through: :collaborators
+  has_many :collaborated_wikis, through: :collaborators, source: :wiki
   has_many :charges
 
   def init

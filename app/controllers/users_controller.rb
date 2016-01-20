@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     @wikis = @user.wikis
 
-   @collaborations =  @user.collaborators
+    @collaborations =  @user.collaborated_wikis
 
     authorize @user
   end
